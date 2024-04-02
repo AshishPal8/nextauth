@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 connect()
 
-export async function POST(request: NextRequest){
+export async function GET(){
     try {
         const response = NextResponse.json({
             message: "User logout seccessfully",
@@ -13,6 +13,7 @@ export async function POST(request: NextRequest){
             httpOnly: true,
             expires: new Date(0)
         })
+        return response;
         
     } catch (error: any) {
         return NextResponse.json({error: error.message}, {status: 500})
